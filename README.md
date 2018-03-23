@@ -7,9 +7,9 @@
 #### 🌈 startup :
 
 ```
-java -jar spring-cloud-eureka-0.0.1-SNAPSHOT.jar --spring.profiles.active=eureka1
-java -jar spring-cloud-eureka-0.0.1-SNAPSHOT.jar --spring.profiles.active=eureka2
-java -jar spring-cloud-eureka-0.0.1-SNAPSHOT.jar --spring.profiles.active=eureka3
+java -jar server-1.0.0-SNAPSHOT.jar --spring.profiles.active=eureka1
+java -jar server-1.0.0-SNAPSHOT.jar --spring.profiles.active=eureka2
+java -jar server-1.0.0-SNAPSHOT.jar --spring.profiles.active=eureka3
 ```
 
 如果是本地测试，还需要设置下host:

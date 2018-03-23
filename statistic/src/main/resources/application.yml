@@ -1,8 +1,8 @@
 spring:
   application:
-    name: spring-cloud-ad
+    name: spring-cloud-statistic
 server:
-  port: 6000
+  port: 5000
 eureka:
   client:
     service-url:
