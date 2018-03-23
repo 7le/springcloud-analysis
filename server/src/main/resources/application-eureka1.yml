@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: spring-cloud-eureka
+server:
+  port: 7771
+eureka:
+  instance:
+    hostname: eureka1
+  client:
+    register-with-eureka: true   #是否注册自身到eureka服务器
+    fetch-registry: true         #是否从eureka服务器获取注册信息
+    service-url:
+      defaultZone: 'http://eureka2:7772/eureka/,http://eureka3:7773/eureka/'
