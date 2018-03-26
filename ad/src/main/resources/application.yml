@@ -1,9 +1,12 @@
 spring:
   application:
     name: spring-cloud-ad
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        healthCheckPath: /status
+        healthCheckInterval: 5s
 server:
-  port: 6000
-eureka:
-  client:
-    service-url:
-      defaultZone: 'http://eureka1:7771/eureka/,http://eureka2:7772/eureka/,http://eureka3:7773/eureka/'
+  port: 8000

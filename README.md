@@ -2,9 +2,13 @@
 
 > 使用springcloud重新设计原先基于vert.x的分布式统计系统
 
-### 注册中心 （server）
+### 🌈 注册中心 
 
-#### 🌈 startup :
+#### consul 
+
+#### eureka （server 暂不用） 
+
+startup :
 
 ```
 java -jar server-1.0.0-SNAPSHOT.jar --spring.profiles.active=eureka1

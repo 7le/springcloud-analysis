@@ -19,9 +19,13 @@ public class AdController {
     @Autowired
     TestService testService;
 
+    @RequestMapping("/status")
+    public String health() {
+        return "Winter is coming";
+    }
+
     @RequestMapping(value = "/hi")
     public String hi(@RequestParam String name){
         return testService.hiService(name);
     }
-
 }
