@@ -6,6 +6,10 @@
 
 #### consul 
 
+[consul download](http://www.consul.io/)
+
+如果是开发环境，部署在windows,解压后配置环境变量，启动命令为``consul agent -dev``
+
 #### eureka （server 暂不用） 
 
 startup :

@@ -9,5 +9,5 @@ spring:
         healthCheckPath: /status
         healthCheckInterval: 5s
 server:
-  port: 5001
+  port: 5000
 
