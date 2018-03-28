@@ -1,4 +1,4 @@
-package com.cloud.ad.web;
+package com.cloud.ad.controller;
 
 import com.cloud.ad.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
