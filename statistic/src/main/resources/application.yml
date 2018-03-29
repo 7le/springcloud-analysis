@@ -8,6 +8,7 @@ spring:
       discovery:
         healthCheckPath: /status
         healthCheckInterval: 5s
+        health-check-critical-timeout: 3m
 server:
   port: 5000
   undertow:
