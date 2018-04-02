@@ -9,6 +9,9 @@ spring:
         healthCheckPath: /status
         healthCheckInterval: 5s
         health-check-critical-timeout: 3m
+    loadbalancer:
+      retry:
+        enabled: true
 server:
   port: 2000
   undertow:
@@ -28,3 +31,10 @@ zuul:
     api-a:
       path: /api/**
       serviceId: spring-cloud-ad
+  retryable: true
+ribbon:
+  connectTimeout: 500                 # 请求连接的超时时间
+  readTimeout:  1000                  # 请求处理的超时时间
+  maxAutoRetries: 2                   # 对当前实例的重试次数
+  maxAutoRetriesNextServer: 1         # 切换实例的重试次数
+  okToRetryOnAllOperations: true      # 对所有操作请求都进行重试

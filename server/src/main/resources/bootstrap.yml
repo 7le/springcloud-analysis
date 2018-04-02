@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    config:
+      name: config    # 对应{application}部分
+      profile: dev    # 对应{profile}部分
+      label: master
+      failFast: true
+      discovery:
+        enabled: true
+        service-id: spring-cloud-config
