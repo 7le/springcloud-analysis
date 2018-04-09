@@ -51,3 +51,12 @@ ribbon:
   maxAutoRetriesNextServer: 1         # 切换实例的重试次数
   okToRetryOnAllOperations: true      # 对所有操作请求都进行重试
 ```
+
+### 🐳 链路跟踪 （zipkin）
+
+linux 部署：
+
+```
+wget -O zipkin.jar 'https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=LATEST&c=exec'
+nohup java -jar zipkin.jar &  
+```

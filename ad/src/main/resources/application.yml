@@ -9,6 +9,11 @@ spring:
         healthCheckPath: /status
         healthCheckInterval: 5s
         health-check-critical-timeout: 3m
+  zipkin:
+    base-url: http://114.215.122.158:9411
+  sleuth:
+    sampler:
+      percentage: 1.0
 server:
   port: 8000
   undertow:
