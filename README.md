@@ -54,9 +54,11 @@ ribbon:
 
 ### 🐳 链路跟踪 （zipkin）
 
-linux 部署：
+#### linux 部署：
 
 ```
 wget -O zipkin.jar 'https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=LATEST&c=exec'
 nohup java -jar zipkin.jar &  
 ```
+
+web页面：http://your_ip:9411 ，默认9411 可以自行修改
