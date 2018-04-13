@@ -9,11 +9,20 @@ spring:
         healthCheckPath: /status
         healthCheckInterval: 5s
         health-check-critical-timeout: 3m
+    bus:
+      trace:
+        enabled: true
+    stream:
+      default-binder: rabbit
   zipkin:
     base-url: http://114.215.122.158:9411
   sleuth:
     sampler:
       percentage: 1.0
+  rabbitmq:
+    host: 114.215.122.158
+    username: ly
+    password:
 server:
   port: 8000
   undertow:

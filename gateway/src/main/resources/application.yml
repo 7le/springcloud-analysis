@@ -12,6 +12,8 @@ spring:
     loadbalancer:
       retry:
         enabled: true
+    stream:
+      default-binder: rabbit
 server:
   port: 2000
   undertow:

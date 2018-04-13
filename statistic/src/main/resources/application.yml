@@ -9,6 +9,8 @@ spring:
         healthCheckPath: /status
         healthCheckInterval: 5s
         health-check-critical-timeout: 3m
+    stream:
+      default-binder: rabbit
 server:
   port: 5000
   undertow:
