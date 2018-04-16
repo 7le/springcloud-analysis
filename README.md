@@ -30,6 +30,8 @@ java -jar server-1.0.0-SNAPSHOT.jar --spring.profiles.active=eureka3
 
 ### 🍀 配置中心 （config） 
 
+#### 监控 --Actuator
+
 spring-boot 2.x 需要自己开发端点，配置如下：
 ```
 management:
@@ -39,6 +41,20 @@ management:
         include: '*'   # 代表全部放开，可以自行选择
       base-path: /application
 ```
+Actuator 部分端点：
+
+| HTTP 方法|     路径|   描述|
+| :-------- | --------:| :------: |
+|GET|/beans|描述应用程序上下文里全部的Bean，以及它们的关系|
+|GET|/health|健康检查     |
+|GET|/env|获取全部环境属性     |
+|GET|/env/{toMatch}|根据名称获取特定的环境属性值     |
+|GET|/configprops|描述配置属性(包含默认值)如何注入Bean     |
+|GET|/mappings| 描述全部的URI路径，以及它们和控制器(包含Actuator端点)的映射关系    |
+|GET|/metrics|报告各种应用程序度量信息，比如内存用量和HTTP请求计数   |
+|GET|/metrics/{requiredMetricName}|报告指定名称的应用程序度量值     |
+|POST|/bus-refresh|端点手动刷新配置     |
+|GET|/httptrace|提供基本的HTTP请求跟踪信息(时间戳、HTTP头等)     |
 
 ### 🐧 网关 （gateway）
 
