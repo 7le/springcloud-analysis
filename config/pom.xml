@@ -29,12 +29,6 @@
 			<groupId>com.cloud.common</groupId>
 			<artifactId>common</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.cloud</groupId>
-					<artifactId>spring-cloud-starter-bus-amqp</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 
 		<dependency>

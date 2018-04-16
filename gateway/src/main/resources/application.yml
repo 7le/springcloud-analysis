@@ -12,8 +12,15 @@ spring:
     loadbalancer:
       retry:
         enabled: true
+    bus:
+      trace:
+        enabled: true
     stream:
       default-binder: rabbit
+  rabbitmq:
+    host: 114.215.122.158
+    username: ly
+    password:
 server:
   port: 2000
   undertow:
@@ -40,3 +47,9 @@ ribbon:
   maxAutoRetries: 2                   # 对当前实例的重试次数
   maxAutoRetriesNextServer: 1         # 切换实例的重试次数
   okToRetryOnAllOperations: true      # 对所有操作请求都进行重试
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /application

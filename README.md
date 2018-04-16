@@ -30,6 +30,16 @@ java -jar server-1.0.0-SNAPSHOT.jar --spring.profiles.active=eureka3
 
 ### 🍀 配置中心 （config） 
 
+spring-boot 2.x 需要自己开发端点，配置如下：
+```
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'   # 代表全部放开，可以自行选择
+      base-path: /application
+```
+
 ### 🐧 网关 （gateway）
 
 #### 目前使用zuul
