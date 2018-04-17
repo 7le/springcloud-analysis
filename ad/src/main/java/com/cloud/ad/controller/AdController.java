@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +20,7 @@ import java.util.concurrent.TimeUnit;
  * @since v1.0.0
  */
 @RestController
+@RefreshScope
 public class AdController {
 
     private Logger logger= LoggerFactory.getLogger(AdController.class);
@@ -28,11 +30,6 @@ public class AdController {
 
     @Value("${7le}")
     private String str;
-
-    @RequestMapping("/status")
-    public String health() {
-        return "Winter is coming";
-    }
 
     @RequestMapping(value = "/hi")
     public String hi(@RequestParam String name) {

@@ -17,11 +17,6 @@ public class TestController {
     @Value("${server.port}")
     String port;
 
-    @RequestMapping("/status")
-    public String health() {
-        return "Winter is coming";
-    }
-
     @RequestMapping("/hi")
     public String home(@RequestParam String name) {
         return "hi "+name+",i am from port:" +port;

@@ -6,7 +6,7 @@ spring:
       host: 127.0.0.1
       port: 8500
       discovery:
-        healthCheckPath: /status
+        healthCheckPath: /application/health
         healthCheckInterval: 5s
         health-check-critical-timeout: 3m
     bus:

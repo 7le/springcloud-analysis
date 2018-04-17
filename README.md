@@ -1,6 +1,6 @@
 # springcloud-analysis
 
-> 使用springcloud重新设计原先基于vert.x的分布式统计系统
+> 基于spring-boot2.x和spring-cloud 重新设计原先基于vert.x的分布式统计系统
 
 ### 🌈 注册中心 
 
@@ -30,9 +30,9 @@ java -jar server-1.0.0-SNAPSHOT.jar --spring.profiles.active=eureka3
 
 ### 🍀 配置中心 （config） 
 
-#### 监控 --Actuator
+### 🍁 监控 -- Actuator
 
-spring-boot 2.x 需要自己开发端点，配置如下：
+spring-boot 2.x 需要自己开放端点，配置如下：
 ```
 management:
   endpoints:
@@ -58,7 +58,7 @@ Actuator 部分端点：
 
 ### 🐧 网关 （gateway）
 
-#### 目前使用zuul
+#### 目前使用 -- zuul
 
 路由重试配置：
 
@@ -78,7 +78,7 @@ ribbon:
   okToRetryOnAllOperations: true      # 对所有操作请求都进行重试
 ```
 
-### 🐳 链路跟踪 （zipkin）
+### 🐳 链路跟踪 -- zipkin
 
 #### linux 部署：
 

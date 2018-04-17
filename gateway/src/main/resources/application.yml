@@ -6,7 +6,7 @@ spring:
       host: 127.0.0.1
       port: 8500
       discovery:
-        healthCheckPath: /status
+        healthCheckPath: /application/health
         healthCheckInterval: 5s
         health-check-critical-timeout: 3m
     loadbalancer:
@@ -21,6 +21,11 @@ spring:
     host: 114.215.122.158
     username: ly
     password:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/spring_analysis?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 19960301
+    driver-class-name: com.mysql.jdbc.Driver
 server:
   port: 2000
   undertow:
@@ -35,12 +40,6 @@ server:
     worker-threads: 50        # 阻塞任务线程池，当执行类似servlet请求阻塞操作，undertow会从这个线程池中取得线程，它的值设置取决于系统的负载
     buffer-size: 1024         # 以下的配置会影响buffer，这些buffer会用于服务器连接的IO操作,每块buffer的空间大小，越小的空间被利用越充分
     direct-buffers: true      # 是否分配的直接内存
-zuul:
-  routes:
-    api-a:
-      path: /api/**
-      serviceId: spring-cloud-ad
-  retryable: true
 ribbon:
   connectTimeout: 500                 # 请求连接的超时时间
   readTimeout:  1000                  # 请求处理的超时时间
