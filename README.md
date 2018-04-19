@@ -30,6 +30,21 @@ java -jar server-1.0.0-SNAPSHOT.jar --spring.profiles.active=eureka3
 
 ### 🍀 配置中心 （config） 
 
+配置中心采用的是git管理内容，是自建的gogs。如何搭建戳 [Devops](http://7le.top/2017/10/09/%E7%8E%A9%E8%80%8DDevops%20Git+Gogs+Jenkins+Docker)
+
+如果是为了测试图个方便，也可以使用也可以配置本地存储，只需要设置：
+
+```
+spring:
+  profiles:
+    active: native
+  cloud:
+     config:
+       server:
+         native:
+           search-locations: file:E:/properties/ 
+```
+
 ### 🍁 监控 -- Actuator
 
 spring-boot 2.x 需要自己开放端点，配置如下：
