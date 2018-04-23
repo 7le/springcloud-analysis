@@ -18,7 +18,7 @@ public class AutoRouteEndpoint extends AbstractBusEndpoint {
     }
 
     @WriteOperation
-    public void refreshRouteWithDestination(@Selector String destination) { //TODO: document destination
+    public void refreshRouteWithDestination(@Selector String destination) {
         publish(new AutoRouteEvent(this, getInstanceId(), destination));
     }
 

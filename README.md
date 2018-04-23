@@ -45,7 +45,7 @@ spring:
            search-locations: file:E:/properties/ 
 ```
 
-实现了动态路由和集群通知  戳[springcloud：实现zuul的动态路由和集群通知](http://7le.top/2018/04/18/springcloud%EF%BC%9A%E5%AE%9E%E7%8E%B0zuul%E7%9A%84%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E5%92%8C%E9%9B%86%E7%BE%A4%E9%80%9A%E7%9F%A5/)
+实现了动态路由和集群通知  博客可以戳 [springcloud：实现zuul的动态路由和集群通知](http://7le.top/2018/04/18/springcloud%EF%BC%9A%E5%AE%9E%E7%8E%B0zuul%E7%9A%84%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E5%92%8C%E9%9B%86%E7%BE%A4%E9%80%9A%E7%9F%A5/)
 
 ### 🍁 监控 -- Actuator
 

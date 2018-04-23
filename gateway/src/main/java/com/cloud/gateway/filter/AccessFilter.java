@@ -1,23 +1,20 @@
 package com.cloud.gateway.filter;
 
 import com.netflix.zuul.ZuulFilter;
-import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
+import com.netflix.zuul.context.RequestContext;
+import org.springframework.stereotype.Component;
 
-/**
- * 异常过滤器
- *
- * @author 7le
- */
-public class ErrorFilter extends ZuulFilter {
+@Component
+public class AccessFilter extends ZuulFilter {
 
     @Override
     public String filterType() {
-        return "error";
+        return "pre";
     }
 
     @Override
     public int filterOrder() {
-        return FilterConstants.SEND_ERROR_FILTER_ORDER;
+        return 0;
     }
 
     @Override
@@ -27,6 +24,8 @@ public class ErrorFilter extends ZuulFilter {
 
     @Override
     public Object run() {
+        RequestContext ctx = RequestContext.getCurrentContext();
+        ctx.set("startTime",System.currentTimeMillis());
         return null;
     }
 }
