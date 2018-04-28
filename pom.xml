@@ -6,7 +6,7 @@
 	<groupId>com.cloud</groupId>
 	<artifactId>cloud</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
 	<name>cloud</name>
 	<description>cloud</description>
