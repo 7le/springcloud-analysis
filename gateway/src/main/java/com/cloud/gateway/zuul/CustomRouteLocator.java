@@ -1,15 +1,16 @@
 package com.cloud.gateway.zuul;
 
-import com.cloud.gateway.bean.ZuulRouteConfig;
+import com.cloud.gateway.dao.model.ZuulRouteConfig;
+import com.cloud.gateway.dao.ZuulRouteConfigMapper;
 import org.apache.logging.log4j.util.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.netflix.zuul.filters.RefreshableRouteLocator;
 import org.springframework.cloud.netflix.zuul.filters.SimpleRouteLocator;
 import org.springframework.cloud.netflix.zuul.filters.ZuulProperties;
 import org.springframework.cloud.netflix.zuul.filters.ZuulProperties.ZuulRoute;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.util.StringUtils;
 
 import java.util.LinkedHashMap;
@@ -23,13 +24,10 @@ public class CustomRouteLocator extends SimpleRouteLocator implements Refreshabl
 
     private final static Logger logger = LoggerFactory.getLogger(CustomRouteLocator.class);
 
-    private JdbcTemplate jdbcTemplate;
+    @Autowired
+    private ZuulRouteConfigMapper zuulRouteConfigMapper;
 
     private ZuulProperties properties;
-
-    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
 
     public CustomRouteLocator(String servletPath, ZuulProperties properties) {
         super(servletPath, properties);
@@ -70,7 +68,7 @@ public class CustomRouteLocator extends SimpleRouteLocator implements Refreshabl
 
     private Map<String, ZuulRoute> locateRoutesFromDB() {
         Map<String, ZuulRoute> routes = new LinkedHashMap<>();
-        List<ZuulRouteConfig> results = jdbcTemplate.query("select * from zuul_route_config where enabled = 1 ", new BeanPropertyRowMapper<>(ZuulRouteConfig.class));
+        List<ZuulRouteConfig> results = zuulRouteConfigMapper.selectByEnabled(1);
         for (ZuulRouteConfig result : results) {
             if (Strings.isBlank(result.getPath())){
                 continue;
@@ -80,7 +78,7 @@ public class CustomRouteLocator extends SimpleRouteLocator implements Refreshabl
             }
             ZuulRoute zuulRoute = new ZuulRoute();
             try {
-                org.springframework.beans.BeanUtils.copyProperties(result, zuulRoute);
+                BeanUtils.copyProperties(result, zuulRoute);
             } catch (Exception e) {
                 logger.error("=============load zuul route info from db with error==============", e);
             }

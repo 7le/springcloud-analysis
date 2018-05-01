@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cloud.gateway.dao.ZuulRouteConfigMapper">
+    <resultMap id="BaseResultMap" type="com.cloud.gateway.dao.model.ZuulRouteConfig">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="path" property="path" jdbcType="VARCHAR"/>
+        <result column="service_id" property="serviceId" jdbcType="VARCHAR"/>
+        <result column="url" property="url" jdbcType="VARCHAR"/>
+        <result column="retry_able" property="retryAble" jdbcType="BIT"/>
+        <result column="enabled" property="enabled" jdbcType="BIT"/>
+        <result column="strip_prefix" property="stripPrefix" jdbcType="BIT"/>
+        <result column="api_name" property="apiName" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, path, service_id, url, retry_able, enabled, strip_prefix, api_name
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from zuul_route_config
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from zuul_route_config
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.cloud.gateway.dao.model.ZuulRouteConfig">
+        <selectKey resultType="java.lang.String" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into zuul_route_config (path, service_id, url,
+        retry_able, enabled, strip_prefix,
+        api_name)
+        values (#{path,jdbcType=VARCHAR}, #{serviceId,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR},
+        #{retryAble,jdbcType=BIT}, #{enabled,jdbcType=BIT}, #{stripPrefix,jdbcType=BIT},
+        #{apiName,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.cloud.gateway.dao.model.ZuulRouteConfig">
+        <selectKey resultType="java.lang.String" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into zuul_route_config
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="path != null">
+                path,
+            </if>
+            <if test="serviceId != null">
+                service_id,
+            </if>
+            <if test="url != null">
+                url,
+            </if>
+            <if test="retryAble != null">
+                retry_able,
+            </if>
+            <if test="enabled != null">
+                enabled,
+            </if>
+            <if test="stripPrefix != null">
+                strip_prefix,
+            </if>
+            <if test="apiName != null">
+                api_name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="path != null">
+                #{path,jdbcType=VARCHAR},
+            </if>
+            <if test="serviceId != null">
+                #{serviceId,jdbcType=VARCHAR},
+            </if>
+            <if test="url != null">
+                #{url,jdbcType=VARCHAR},
+            </if>
+            <if test="retryAble != null">
+                #{retryAble,jdbcType=BIT},
+            </if>
+            <if test="enabled != null">
+                #{enabled,jdbcType=BIT},
+            </if>
+            <if test="stripPrefix != null">
+                #{stripPrefix,jdbcType=BIT},
+            </if>
+            <if test="apiName != null">
+                #{apiName,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.cloud.gateway.dao.model.ZuulRouteConfig">
+        update zuul_route_config
+        <set>
+            <if test="path != null">
+                path = #{path,jdbcType=VARCHAR},
+            </if>
+            <if test="serviceId != null">
+                service_id = #{serviceId,jdbcType=VARCHAR},
+            </if>
+            <if test="url != null">
+                url = #{url,jdbcType=VARCHAR},
+            </if>
+            <if test="retryAble != null">
+                retry_able = #{retryAble,jdbcType=BIT},
+            </if>
+            <if test="enabled != null">
+                enabled = #{enabled,jdbcType=BIT},
+            </if>
+            <if test="stripPrefix != null">
+                strip_prefix = #{stripPrefix,jdbcType=BIT},
+            </if>
+            <if test="apiName != null">
+                api_name = #{apiName,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.cloud.gateway.dao.model.ZuulRouteConfig">
+    update zuul_route_config
+    set path = #{path,jdbcType=VARCHAR},
+      service_id = #{serviceId,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      retry_able = #{retryAble,jdbcType=BIT},
+      enabled = #{enabled,jdbcType=BIT},
+      strip_prefix = #{stripPrefix,jdbcType=BIT},
+      api_name = #{apiName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+    <select id="selectByEnabled" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+      select * from zuul_route_config where enabled = #{enabled,jdbcType=BIT}
+    </select>
+</mapper>

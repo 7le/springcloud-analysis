@@ -6,10 +6,10 @@ CREATE TABLE `zuul_route_config` (
   `url` varchar(255) DEFAULT NULL,
   `retry_able` tinyint(1) DEFAULT NULL,
   `enabled` tinyint(1) NOT NULL,
-  `strip_prefix` int(11) DEFAULT NULL,
+  `strip_prefix` tinyint(1) DEFAULT NULL,
   `api_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `zuul_route_config` VALUES ('ad', '/ad/**', 'spring-cloud-ad', NULL, 0, 1, 1, NULL);
-INSERT INTO `zuul_route_config` VALUES ('gateway', '/api/**', 'spring-cloud-gateway', NULL, 0, 1, 1, NULL);
+INSERT INTO `zuul_route_config` VALUES ('ad', '/ad/**', 'spring-cloud-ad', null, '0', '1', '1', null);
+INSERT INTO `zuul_route_config` VALUES ('gateway', '/api/**', 'spring-cloud-gateway', null, '0', '1', '1', null);
