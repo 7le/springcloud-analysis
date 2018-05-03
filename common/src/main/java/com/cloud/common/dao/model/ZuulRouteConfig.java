@@ -1,4 +1,4 @@
-package com.cloud.gateway.dao.model;
+package com.cloud.common.dao.model;
 
 public class ZuulRouteConfig {
     private String id;

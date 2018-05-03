@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.cloud.gateway.dao.ZuulRouteConfigMapper">
-    <resultMap id="BaseResultMap" type="com.cloud.gateway.dao.model.ZuulRouteConfig">
+<mapper namespace="com.cloud.common.dao.ZuulRouteConfigMapper">
+    <resultMap id="BaseResultMap" type="com.cloud.common.dao.model.ZuulRouteConfig">
         <id column="id" property="id" jdbcType="VARCHAR"/>
         <result column="path" property="path" jdbcType="VARCHAR"/>
         <result column="service_id" property="serviceId" jdbcType="VARCHAR"/>
@@ -24,7 +24,7 @@
     delete from zuul_route_config
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-    <insert id="insert" parameterType="com.cloud.gateway.dao.model.ZuulRouteConfig">
+    <insert id="insert" parameterType="com.cloud.common.dao.model.ZuulRouteConfig">
         <selectKey resultType="java.lang.String" keyProperty="id" order="AFTER">
             SELECT LAST_INSERT_ID()
         </selectKey>
@@ -35,7 +35,7 @@
         #{retryAble,jdbcType=BIT}, #{enabled,jdbcType=BIT}, #{stripPrefix,jdbcType=BIT},
         #{apiName,jdbcType=VARCHAR})
     </insert>
-    <insert id="insertSelective" parameterType="com.cloud.gateway.dao.model.ZuulRouteConfig">
+    <insert id="insertSelective" parameterType="com.cloud.common.dao.model.ZuulRouteConfig">
         <selectKey resultType="java.lang.String" keyProperty="id" order="AFTER">
             SELECT LAST_INSERT_ID()
         </selectKey>
@@ -87,7 +87,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.cloud.gateway.dao.model.ZuulRouteConfig">
+    <update id="updateByPrimaryKeySelective" parameterType="com.cloud.common.dao.model.ZuulRouteConfig">
         update zuul_route_config
         <set>
             <if test="path != null">
@@ -114,7 +114,7 @@
         </set>
         where id = #{id,jdbcType=VARCHAR}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.cloud.gateway.dao.model.ZuulRouteConfig">
+    <update id="updateByPrimaryKey" parameterType="com.cloud.common.dao.model.ZuulRouteConfig">
     update zuul_route_config
     set path = #{path,jdbcType=VARCHAR},
       service_id = #{serviceId,jdbcType=VARCHAR},

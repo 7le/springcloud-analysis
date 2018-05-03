@@ -1,7 +1,7 @@
 package com.cloud.gateway.zuul;
 
-import com.cloud.gateway.dao.model.ZuulRouteConfig;
-import com.cloud.gateway.dao.ZuulRouteConfigMapper;
+import com.cloud.common.dao.model.ZuulRouteConfig;
+import com.cloud.common.dao.ZuulRouteConfigMapper;
 import org.apache.logging.log4j.util.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,6 +1,6 @@
-package com.cloud.gateway.dao;
+package com.cloud.common.dao;
 
-import com.cloud.gateway.dao.model.ZuulRouteConfig;
+import com.cloud.common.dao.model.ZuulRouteConfig;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

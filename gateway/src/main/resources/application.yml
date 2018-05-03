@@ -27,7 +27,6 @@ spring:
     password: 19960301
     driver-class-name: com.mysql.jdbc.Driver
 mybatis:
-  type-aliases-package: com.cloud.gateway.dao
   mapper-locations: classpath:mapping/*.xml
 server:
   port: 2000
