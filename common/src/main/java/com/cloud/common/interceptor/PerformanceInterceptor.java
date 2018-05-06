@@ -11,6 +11,7 @@ import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.type.TypeHandlerRegistry;
+import org.springframework.stereotype.Component;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -28,6 +29,7 @@ import java.util.Properties;
         @Signature(type = Executor.class, method = "update", args = {MappedStatement.class, Object.class})
         /*@Signature(type = Executor.class, method = "insertIntoUserDaily", args = {MappedStatement.class, Object.class})*/
 })
+@Component
 public class PerformanceInterceptor implements Interceptor {
 
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

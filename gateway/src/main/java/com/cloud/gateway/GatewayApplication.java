@@ -1,5 +1,6 @@
 package com.cloud.gateway;
 
+import com.cloud.common.annotation.InterceptorScan;
 import com.cloud.common.interceptor.PerformanceInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -12,16 +13,11 @@ import org.springframework.context.annotation.Bean;
  */
 @SpringCloudApplication
 @EnableZuulProxy
-@MapperScan(value = "com.cloud.common.dao")
+@MapperScan("com.cloud.common.dao")
+@InterceptorScan("com.cloud.common.interceptor")
 public class GatewayApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(GatewayApplication.class, args);
     }
-
-    @Bean
-    PerformanceInterceptor performanceInterceptor() {
-        return new PerformanceInterceptor();
-    }
-
 }
