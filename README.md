@@ -44,8 +44,8 @@ spring:
          native:
            search-locations: file:E:/properties/ 
 ```
+在修改之后需要自己触发``curl -X POST http://127.0.0.1:7000/application/bus-refresh``
 
-实现了动态路由和集群通知  博客可以戳 [springcloud：实现zuul的动态路由和集群通知](http://7le.top/2018/04/18/springcloud%EF%BC%9A%E5%AE%9E%E7%8E%B0zuul%E7%9A%84%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E5%92%8C%E9%9B%86%E7%BE%A4%E9%80%9A%E7%9F%A5/)
 
 ### 🍁 监控 -- Actuator
 
@@ -73,6 +73,7 @@ Actuator 部分端点：
 |POST|/bus-refresh|端点手动刷新配置     |
 |GET|/httptrace|提供基本的HTTP请求跟踪信息(时间戳、HTTP头等)     |
 
+
 ### 🐧 网关 （gateway）
 
 #### 目前使用 -- zuul
@@ -94,6 +95,8 @@ ribbon:
   maxAutoRetriesNextServer: 1         # 切换实例的重试次数
   okToRetryOnAllOperations: true      # 对所有操作请求都进行重试
 ```
+
+实现了动态路由和集群通知  博客可以戳 [springcloud：实现zuul的动态路由和集群通知](http://7le.top/2018/04/18/springcloud%EF%BC%9A%E5%AE%9E%E7%8E%B0zuul%E7%9A%84%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E5%92%8C%E9%9B%86%E7%BE%A4%E9%80%9A%E7%9F%A5/)
 
 ### 🐳 链路跟踪 -- zipkin
 
