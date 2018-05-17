@@ -23,6 +23,11 @@ spring:
     host: 114.215.122.158
     username: ly
     password:
+  redis:
+    host: 114.215.122.158
+    port: 16379
+    database: 4
+    password:
 server:
   port: 8000
   undertow:
