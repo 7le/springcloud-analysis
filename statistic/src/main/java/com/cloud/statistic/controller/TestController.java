@@ -21,16 +21,4 @@ public class TestController {
     public String home(@RequestParam String name) {
         return "hi "+name+",i am from port:" +port;
     }
-
-    public static void main(String[] args) {
-        String str="abc";
-        String str1=new String("abc");
-        System.out.println(str.toString());
-        System.out.println(str1.toString());
-    }
-
-    class A {
-
-        private String str;
-    }
 }

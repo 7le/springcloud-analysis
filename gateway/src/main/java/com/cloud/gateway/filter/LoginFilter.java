@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author 7le
  */
 @Component
-public class loginFilter extends ZuulFilter {
+public class LoginFilter extends ZuulFilter {
 
 
     /**

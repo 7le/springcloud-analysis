@@ -20,7 +20,7 @@ spring:
   rabbitmq:
     host: 114.215.122.158
     username: ly
-    password:
+    password: 19960301
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/spring_analysis?useUnicode=true&characterEncoding=utf-8
     username: root

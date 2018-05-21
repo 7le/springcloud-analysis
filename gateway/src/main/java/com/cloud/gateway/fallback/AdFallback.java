@@ -62,7 +62,7 @@ public class AdFallback implements FallbackProvider {
 
             @Override
             public InputStream getBody() throws IOException {
-                return new ByteArrayInputStream("The service is unavailable.".getBytes());
+                return new ByteArrayInputStream("The service is unavailable.".getBytes("UTF-8"));
             }
 
             @Override

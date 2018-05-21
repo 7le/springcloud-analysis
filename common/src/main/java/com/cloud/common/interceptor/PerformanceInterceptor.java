@@ -33,7 +33,7 @@ import java.util.Properties;
 @Component
 public class PerformanceInterceptor implements Interceptor {
 
-    private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private static final String COMMON_DATE = "yyyy-MM-dd HH:mm:ss";
 
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
@@ -104,7 +104,8 @@ public class PerformanceInterceptor implements Interceptor {
             if (propertyValue instanceof String) {
                 result = "'" + propertyValue + "'";
             } else if (propertyValue instanceof Date) {
-                result = "'" + DATE_FORMAT.format(propertyValue) + "'";
+                SimpleDateFormat format = new SimpleDateFormat(COMMON_DATE);
+                result = "'" + format.format(propertyValue) + "'";
             } else {
                 result = propertyValue.toString();
             }
