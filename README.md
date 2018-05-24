@@ -102,13 +102,13 @@ ribbon:
 
 #### linux 部署：
 
-Linux:
 ```
 wget -O zipkin.jar 'https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=LATEST&c=exec'
 nohup java -jar zipkin.jar &  
 ```
 
-window:
+#### window 部署：
+
 ```
 https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=LATEST&c=exec
 java -jar zipkin-server-2.8.4-exec.jar
