@@ -58,7 +58,7 @@ public class SnowflakeIdGenerator {
      */
     private long lastTimestamp = -1L;
 
-    public static SnowflakeIdGenerator idWorker;
+    private static SnowflakeIdGenerator idWorker;
     //===============================================Constructors=======================================================
 
     /**
