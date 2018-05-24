@@ -102,9 +102,27 @@ ribbon:
 
 #### linux 部署：
 
+Linux:
 ```
 wget -O zipkin.jar 'https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=LATEST&c=exec'
 nohup java -jar zipkin.jar &  
+```
+
+window:
+```
+https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=LATEST&c=exec
+java -jar zipkin-server-2.8.4-exec.jar
+```
+
+需要添加的配置:
+```
+zipkin:
+    base-url: http://localhost:9411
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1.0  #采样比例设置为1.0，将会全部采集。默认是 0.1
 ```
 
 web页面：http://your_ip:9411 ，默认9411 可以自行修改
