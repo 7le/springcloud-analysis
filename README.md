@@ -107,7 +107,7 @@ wget -O zipkin.jar 'https://search.maven.org/remote_content?g=io.zipkin.java&a=z
 nohup java -jar zipkin.jar &  
 ```
 
-#### window 部署：
+#### windows 部署：
 
 ```
 https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=LATEST&c=exec
