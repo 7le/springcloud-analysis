@@ -88,12 +88,13 @@ spring:
         enabled: true
 zuul:
   retryable: true
-ribbon:
-  connectTimeout: 500                 # 请求连接的超时时间
-  readTimeout:  1000                  # 请求处理的超时时间
-  maxAutoRetries: 2                   # 对当前实例的重试次数
-  maxAutoRetriesNextServer: 1         # 切换实例的重试次数
-  okToRetryOnAllOperations: true      # 对所有操作请求都进行重试
+spring-cloud-ad:
+  ribbon:
+    ConnectTimeout: 500                 # 请求连接的超时时间
+    ReadTimeout:  1000                  # 请求处理的超时时间
+    MaxAutoRetries: 2                   # 对当前实例的重试次数
+    MaxAutoRetriesNextServer: 1         # 切换实例的重试次数
+    OkToRetryOnAllOperations: true      # 对所有操作请求都进行重试
 ```
 
 实现了动态路由和集群通知  博客可以戳 [springcloud：实现zuul的动态路由和集群通知](http://7le.top/2018/04/18/springcloud%EF%BC%9A%E5%AE%9E%E7%8E%B0zuul%E7%9A%84%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E5%92%8C%E9%9B%86%E7%BE%A4%E9%80%9A%E7%9F%A5/)
