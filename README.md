@@ -30,7 +30,7 @@ java -jar server-1.0.0-SNAPSHOT.jar --spring.profiles.active=eureka3
 
 ### 🍀 配置中心 （config） 
 
-配置中心采用的是git管理内容，是自建的gogs。如何搭建戳 [Devops](https://7le.top/2017/10/09/%E7%8E%A9%E8%80%8DDevops%20Git+Gogs+Jenkins+Docker)
+配置中心采用的是git管理内容，是自建的gogs。如何搭建戳 [玩耍Devops Git+Gogs+Jenkins+Docker](https://7le.top/2017/10/09/%E7%8E%A9%E8%80%8DDevops%20Git+Gogs+Jenkins+Docker/)
 
 如果是为了测试图个方便，也可以使用也可以配置本地存储，只需要设置：
 
@@ -97,7 +97,7 @@ spring-cloud-ad:
     OkToRetryOnAllOperations: true      # 对所有操作请求都进行重试
 ```
 
-花了些时间去读了部分源码  博客可以戳 [springcloud：ribbon配置和zuul重试源码解读](https://7le.top/2018/04/18/springcloud%EF%BC%9A%E5%AE%9E%E7%8E%B0zuul%E7%9A%84%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E5%92%8C%E9%9B%86%E7%BE%A4%E9%80%9A%E7%9F%A5/#more)
+花了些时间去读了部分源码  博客可以戳 [springcloud：ribbon配置和zuul重试源码解读](https://7le.top/2018/04/18/springcloud%EF%BC%9A%E5%AE%9E%E7%8E%B0zuul%E7%9A%84%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E5%92%8C%E9%9B%86%E7%BE%A4%E9%80%9A%E7%9F%A5/)
 
 实现了动态路由和集群通知  博客可以戳 [springcloud：实现zuul的动态路由和集群通知](https://7le.top/2018/04/18/springcloud%EF%BC%9A%E5%AE%9E%E7%8E%B0zuul%E7%9A%84%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E5%92%8C%E9%9B%86%E7%BE%A4%E9%80%9A%E7%9F%A5/)
 
