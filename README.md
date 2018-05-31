@@ -97,7 +97,7 @@ spring-cloud-ad:
     OkToRetryOnAllOperations: true      # 对所有操作请求都进行重试
 ```
 
-花了些时间去读了部分源码  博客可以戳 [springcloud：ribbon配置和zuul重试源码解读](https://7le.top/2018/04/18/springcloud%EF%BC%9A%E5%AE%9E%E7%8E%B0zuul%E7%9A%84%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E5%92%8C%E9%9B%86%E7%BE%A4%E9%80%9A%E7%9F%A5/)
+花了些时间去读了部分源码  博客可以戳 [springcloud：ribbon配置和zuul重试源码解读](https://7le.top/2018/05/29/springcloud%EF%BC%9Aribbon%E9%85%8D%E7%BD%AE%E5%92%8Czuul%E9%87%8D%E8%AF%95%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/)
 
 实现了动态路由和集群通知  博客可以戳 [springcloud：实现zuul的动态路由和集群通知](https://7le.top/2018/04/18/springcloud%EF%BC%9A%E5%AE%9E%E7%8E%B0zuul%E7%9A%84%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E5%92%8C%E9%9B%86%E7%BE%A4%E9%80%9A%E7%9F%A5/)
 
