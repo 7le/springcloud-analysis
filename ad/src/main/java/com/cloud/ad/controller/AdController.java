@@ -1,6 +1,7 @@
 package com.cloud.ad.controller;
 
-import com.cloud.ad.service.TestService;
+import com.cloud.ad.bean.ResultBean;
+import com.cloud.ad.service.FeignService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Schedulers;
 
 import java.util.concurrent.TimeUnit;
 
@@ -26,14 +28,14 @@ public class AdController {
     private Logger logger= LoggerFactory.getLogger(AdController.class);
 
     @Autowired
-    TestService testService;
+    FeignService feignService;
 
     @Value("${7le}")
     private String str;
 
     @RequestMapping(value = "/hi")
     public String hi(@RequestParam String name) {
-        return testService.hiService(name);
+        return feignService.hiService(name);
     }
 
     @RequestMapping(value = "/retry")
@@ -51,11 +53,16 @@ public class AdController {
      * 响应式test 使用undertow
      */
     @RequestMapping(value = "/")
-    public Mono<String> test() {
+    public Mono<Object> test() {
         logger.info(Thread.currentThread().getName());
         return Mono.create(s -> {
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             logger.info(Thread.currentThread().getName());
-            s.success(str);
-        });
+            s.success(ResultBean.SUCCESS);
+        }).subscribeOn(Schedulers.elastic());
     }
 }

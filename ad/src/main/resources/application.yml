@@ -50,3 +50,6 @@ management:
       exposure:
         include: '*'
       base-path: /application
+feign:
+  hystrix:
+    enabled: true

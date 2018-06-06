@@ -88,13 +88,12 @@ spring:
         enabled: true
 zuul:
   retryable: true
-spring-cloud-ad:
-  ribbon:
-    ConnectTimeout: 500                 # 请求连接的超时时间
-    ReadTimeout:  1000                  # 请求处理的超时时间
-    MaxAutoRetries: 2                   # 对当前实例的重试次数
-    MaxAutoRetriesNextServer: 1         # 切换实例的重试次数
-    OkToRetryOnAllOperations: true      # 对所有操作请求都进行重试
+ribbon:
+  ConnectTimeout: 500                 # 请求连接的超时时间
+  ReadTimeout:  1000                  # 请求处理的超时时间
+  MaxAutoRetries: 2                   # 对当前实例的重试次数
+  MaxAutoRetriesNextServer: 1         # 切换实例的重试次数
+  OkToRetryOnAllOperations: true      # 对所有操作请求都进行重试
 ```
 
 花了些时间去读了部分源码  博客可以戳 [springcloud：ribbon配置和zuul重试源码解读](https://7le.top/2018/05/29/springcloud%EF%BC%9Aribbon%E9%85%8D%E7%BD%AE%E5%92%8Czuul%E9%87%8D%E8%AF%95%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/)
