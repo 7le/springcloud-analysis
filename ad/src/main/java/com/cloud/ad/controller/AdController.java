@@ -34,8 +34,8 @@ public class AdController {
     private String str;
 
     @RequestMapping(value = "/hi")
-    public String hi(@RequestParam String name) {
-        return feignService.hiService(name);
+    public Mono<Object> hi(@RequestParam String name) {
+        return Mono.just(feignService.hiService(name));
     }
 
     @RequestMapping(value = "/retry")
