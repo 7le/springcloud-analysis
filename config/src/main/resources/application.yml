@@ -24,7 +24,7 @@ spring:
   rabbitmq:
     host: 114.215.122.158
     username: ly
-    password: 19960301
+    password:
 server:
   port: 7000
   undertow:

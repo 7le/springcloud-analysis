@@ -62,7 +62,7 @@ public class AdController {
                 e.printStackTrace();
             }
             logger.info(Thread.currentThread().getName());
-            s.success(ResultBean.SUCCESS);
+            s.success(ResultBean.success(str));
         }).subscribeOn(Schedulers.elastic());
     }
 }

@@ -11,7 +11,7 @@ public class ConfigApplication {
 
 	public static void main(String[] args) {
 		SpringApplication app = new SpringApplication(ConfigApplication.class);
-		app.setWebApplicationType(WebApplicationType.REACTIVE);
+		app.setWebApplicationType(WebApplicationType.SERVLET);
 		app.run();
 	}
 }
