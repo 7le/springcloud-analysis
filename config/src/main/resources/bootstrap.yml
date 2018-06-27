@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: http://114.215.122.158:3000/silk_gogs/config-repo  # 配置git仓库的地址
+          search-paths:                                           # git仓库地址下的相对地址，可以配置多个，用,分割。
+          username:                                               # git仓库的账号
+          password:                                               # git仓库的密码
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        healthCheckPath: /application/health
+        healthCheckInterval: 5s
+        health-check-critical-timeout: 3m
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /application

@@ -8,3 +8,16 @@ spring:
       discovery:
         enabled: true
         service-id: spring-cloud-config
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        healthCheckPath: /application/health
+        healthCheckInterval: 5s
+        health-check-critical-timeout: 3m
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /application

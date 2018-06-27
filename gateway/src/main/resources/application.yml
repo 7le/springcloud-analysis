@@ -2,13 +2,6 @@ spring:
   application:
     name: spring-cloud-gateway
   cloud:
-    consul:
-      host: 127.0.0.1
-      port: 8500
-      discovery:
-        healthCheckPath: /application/health
-        healthCheckInterval: 5s
-        health-check-critical-timeout: 3m
     loadbalancer:
       retry:
         enabled: true
@@ -49,12 +42,6 @@ server:
     worker-threads: 50        # 阻塞任务线程池，当执行类似servlet请求阻塞操作，undertow会从这个线程池中取得线程，它的值设置取决于系统的负载
     buffer-size: 1024         # 以下的配置会影响buffer，这些buffer会用于服务器连接的IO操作,每块buffer的空间大小，越小的空间被利用越充分
     direct-buffers: true      # 是否分配的直接内存
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-      base-path: /application
 zuul:
   retryable: true
 ribbon:
