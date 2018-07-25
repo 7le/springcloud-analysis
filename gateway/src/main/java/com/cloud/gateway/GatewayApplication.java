@@ -8,6 +8,7 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * @author 7le
@@ -16,6 +17,7 @@ import org.springframework.context.annotation.Bean;
 @EnableZuulProxy
 @MapperScan("com.cloud.common.dao")
 @InterceptorScan("com.cloud.common.interceptor")
+@EnableTransactionManagement
 public class GatewayApplication {
 
     public static void main(String[] args) {

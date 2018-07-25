@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="10 seconds">
+
+    <property name="projectName" value="springcloud"/>
+    <property name="componentName" value="gateway"/>
+    <property name="log.charset" value="utf8"/> <!-- 日志编码 -->
+    <property name="log.base" value="../../logs/${componentName}"/>
+    <property name="log.max.size" value="25MB"/> <!-- 日志文件大小,超过这个大小将重新创建,可以根据实际情况调整-->
+    <property name="log.max.index" value="20"/>  <!-- 日志最大循环保留个数，可以根据实际情况调整-->
+
+    <!-- 日志格式-->
+    <property name="FILE_LOG_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} %p ${componentName} [%thread] [%logger{80}]%X{X-HIK_TRACE:-}%X{X-HIK_ERROR_CODE:-} - %msg %n "/>
+    <property name="BUSINESS_FILE_LOG_PATTERN" value="%d{yyyy-MM-dd'T'HH:mm:ss.SSS} - %msg %n"/>
+
+    <!--控制台输出 -->
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>${FILE_LOG_PATTERN}</Pattern>
+            <charset>${log.charset}</charset>
+        </encoder>
+    </appender>
+
+    <!-- 保存输出DEBUG级别的日志 -->
+    <appender name="debug" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 设置日志不超过${log.max.size}时的保存路径，注意如果是web项目会保存到Tomcat的bin目录 下 -->
+        <File>${log.base}/${projectName}.${componentName}.debug.log</File>
+        <!-- 滚动记录文件，先将日志记录到指定文件，当符合某个条件时，将日志记录到其他文件。 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <FileNamePattern>${log.base}/${projectName}.${componentName}.debug.log.%i</FileNamePattern>
+            <MinIndex>1</MinIndex>
+            <MaxIndex>${log.max.index}</MaxIndex>
+        </rollingPolicy>
+        <triggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>${log.max.size}</MaxFileSize>
+        </triggeringPolicy>
+        <!-- 日志输出的文件的格式 -->
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- 保存输出INFO级别以上的日志 -->
+    <appender name="info" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${log.base}/${projectName}.${componentName}.info.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <FileNamePattern>${log.base}/${projectName}.${componentName}.info.log.%i</FileNamePattern>
+            <MinIndex>1</MinIndex>
+            <MaxIndex>${log.max.index}</MaxIndex>
+        </rollingPolicy>
+        <triggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>${log.max.size}</MaxFileSize>
+        </triggeringPolicy>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- 保存输出error级别的日志 -->
+    <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${log.base}/${projectName}.${componentName}.error.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <FileNamePattern>${log.base}/${projectName}.${componentName}.error.log.%i</FileNamePattern>
+            <MinIndex>1</MinIndex>
+            <MaxIndex>${log.max.index}</MaxIndex>
+        </rollingPolicy>
+        <triggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>${log.max.size}</MaxFileSize>
+        </triggeringPolicy>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+        </filter>
+    </appender>
+
+    <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+    <!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+    <!-- 添加附加的appender,最多只能添加一个 -->
+    <appender name="async.debug" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>256</queueSize>
+        <includeCallerData>true</includeCallerData>
+        <appender-ref ref="debug"/>
+    </appender>
+
+    <appender name="async.info" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>256</queueSize>
+        <includeCallerData>true</includeCallerData>
+        <appender-ref ref="info"/>
+    </appender>
+
+    <logger name="org.springframework.beans.factory.support" level="ERROR"/>
+
+    <root level="INFO">
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="debug"/>
+        <appender-ref ref="error"/>
+        <appender-ref ref="async.info"/>
+        <appender-ref ref="async.debug"/>
+    </root>
+</configuration>
