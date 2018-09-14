@@ -17,7 +17,9 @@ import java.util.Stack;
 
 /**
  * 多数据源事务
- *
+ * 注：存在一定的隐患（在commit1提交成功，commit2提交失败）会导致数据发生不一致，不过概率很低。
+ * 根据业务场景来选择是否使用。
+ * 
  * @author 7le
  */
 @Slf4j
