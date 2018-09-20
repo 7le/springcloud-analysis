@@ -44,6 +44,7 @@ server:
     direct-buffers: true      # 是否分配的直接内存
 zuul:
   retryable: true
+  sensitive-headers:          # 传递原始的header信息到最终的微服务
 ribbon:
   ConnectTimeout: 500                 # 请求连接的超时时间
   ReadTimeout:  1000                  # 请求处理的超时时间
