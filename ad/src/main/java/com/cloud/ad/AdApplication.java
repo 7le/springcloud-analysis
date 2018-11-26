@@ -16,7 +16,7 @@ public class AdApplication {
 
 	public static void main(String[] args) {
 		SpringApplication app = new SpringApplication(AdApplication.class);
-		app.setWebApplicationType(WebApplicationType.SERVLET);
+		app.setWebApplicationType(WebApplicationType.REACTIVE);
 		app.run();
 	}
 }

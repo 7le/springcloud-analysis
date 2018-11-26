@@ -24,11 +24,13 @@ import static com.google.common.base.Predicates.or;
 import static springfox.documentation.builders.PathSelectors.regex;
 
 /**
+ * 目前webflux 和 swagger不兼容
+ *
  * @author 7le
  * @since 2017-05-17
  */
-@Configuration
-@EnableSwagger2
+//@Configuration
+//@EnableSwagger2
 public class SwaggerConfig {
 
 
