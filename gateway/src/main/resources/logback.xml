@@ -10,7 +10,7 @@
 
     <!-- 日志格式-->
     <property name="FILE_LOG_PATTERN"
-              value="%d{yyyy-MM-dd HH:mm:ss.SSS} %p ${componentName} [%thread] [%logger{80}]%X{X-HIK_TRACE:-}%X{X-HIK_ERROR_CODE:-} - %msg %n "/>
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} %p ${componentName} [%thread] [%logger{80}]%X{X_TRACE:-}%X{X_ERROR_CODE:-} - %msg %n "/>
     <property name="BUSINESS_FILE_LOG_PATTERN" value="%d{yyyy-MM-dd'T'HH:mm:ss.SSS} - %msg %n"/>
 
     <!--控制台输出 -->
