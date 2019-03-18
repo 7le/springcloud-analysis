@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author 7le
  * @since v1.0.0
  */
-@FeignClient(value = "spring-cloud-statistic",fallback = FeignServiceHystrix.class)
+@FeignClient(value = "spring-cloud-statistic",fallbackFactory = FeignServiceHystrix.class)
 public interface FeignService {
 
     @RequestMapping(value = "/hi",method = RequestMethod.GET)
