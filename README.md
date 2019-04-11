@@ -1,6 +1,6 @@
 # springcloud-analysis
 
-> 基于spring-boot2.x和spring-cloud 重新设计原先基于vert.x的分布式统计系统
+> 基于spring-boot2.x和spring-cloud
 
 ### 🌈 注册中心 
 
@@ -106,14 +106,14 @@ ribbon:
 
 ```
 wget -O zipkin.jar 'https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=LATEST&c=exec'
-nohup java -jar zipkin.jar &  
+RABBIT_ADDRESSES=127.0.0.1:5672 RABBIT_USER=guest RABBIT_PASSWORD=guest nohup java -jar zipkin.jar &  
 ```
 
 #### windows 部署：
 
 ```
 https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=LATEST&c=exec
-java -jar zipkin-server-2.8.4-exec.jar
+RABBIT_ADDRESSES=127.0.0.1:5672 RABBIT_USER=guest RABBIT_PASSWORD=guest java -jar zipkin-server-2.8.4-exec.jar
 ```
 
 需要添加的配置:
