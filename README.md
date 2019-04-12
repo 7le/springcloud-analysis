@@ -119,9 +119,9 @@ RABBIT_ADDRESSES=127.0.0.1:5672 RABBIT_USER=guest RABBIT_PASSWORD=guest java -ja
 需要添加的配置:
 ```
 zipkin:
-    base-url: http://localhost:9411
-    sender:
-      type: web
+  #base-url: http://localhost:9411
+      sender:
+        type: rabbit  #使用rabbitmq 使服务和zipkin解耦
   sleuth:
     sampler:
       probability: 1.0  #采样比例设置为1.0，将会全部采集。默认是 0.1
