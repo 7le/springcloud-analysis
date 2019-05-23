@@ -2,6 +2,10 @@
 
 > 基于spring-boot2.x和spring-cloud
 
+### 🥕 blog
+
+[springcloud：使用总结](https://7le.top/2019/05/18/springcloud：使用总结)
+
 ### 🌈 注册中心 
 
 #### consul 
